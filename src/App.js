@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import CardContainer from './components/CardContainer'
+import Card from './components/Card'
 
 
 function App() {
@@ -13,7 +14,11 @@ function App() {
 
 useEffect(()=>{
   axios.get("https://golden-girls-api.herokuapp.com/random/dorothy")
-        .then(res => {setZinger(res.data); console.log(res.data)})
+        .then(res => {
+          setZinger(res.data); 
+          setCurrentCard(<Card zinger={res.data}/>);
+          setCards(oldArray => [...oldArray, currentCard]);
+        })
         .catch(err => {console.log(err)})
 
 }, [])
