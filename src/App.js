@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import CardContainer from './components/CardContainer'
 import Card from './components/Card'
+import Header from './components/Header'
 
 
 function App() {
@@ -30,7 +31,7 @@ useEffect(()=>{
 
   return (
     <div className="App">
-      
+      <Header />
       <CardContainer setZinger = {setZinger} zinger = {zinger} cards={cards} setCards={setCards} currentCard={currentCard} setCurrentCard={setCurrentCard}/>
     </div>
   );

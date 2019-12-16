@@ -21,7 +21,7 @@ const Cards = (props) => {
             <CardTitle>{zinger.who}</CardTitle>
           {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
             <CardText>{zinger.quote}</CardText>
-          <Button>Button</Button>
+          {/* <Button>Button</Button> */}
         </CardBody>
       </Card>
     </CardDiv>

@@ -2,6 +2,7 @@ import React from 'react'
 import Card from './Card'
 import axios from 'axios';
 import styled from 'styled-components'
+import { Button } from 'reactstrap';
 
 const CardDiv = styled.div`
     width: 80%;
@@ -12,9 +13,9 @@ const CardDiv = styled.div`
     margin: 0 auto;
 `;
 
-const Button = styled.button`
-    margin: 4%;
-`;
+// const Button = styled.button`
+//     margin: 4%;
+// `;
 
 const CardContainer = (props) => {
     const {zinger, setZinger, cards, setCards, currentCard, setCurrentCard} = props;
@@ -25,7 +26,21 @@ const CardContainer = (props) => {
 
     return (
         <div>
-        <Button onClick={()=>{
+            <Button style={{margin: "4%"}}color="secondary"
+                onClick={()=>{
+                    axios.get("https://golden-girls-api.herokuapp.com/random/dorothy")
+                    .then(res => {setZinger(res.data);
+                        setCurrentCard(<Card zinger={zinger}/>);
+                        setCards(oldArray => [...oldArray, currentCard]);
+                    })
+                    .catch(err => {console.log(err)})
+            
+                  }}
+            
+            
+            
+            >Get a Zinger</Button>{' '}
+        {/* <Button onClick={()=>{
             axios.get("https://golden-girls-api.herokuapp.com/random/dorothy")
             .then(res => {setZinger(res.data);
                 setCurrentCard(<Card zinger={zinger}/>);
@@ -33,7 +48,7 @@ const CardContainer = (props) => {
             })
             .catch(err => {console.log(err)})
     
-          }}>Get a Zinger</Button>
+          }}>Get a Zinger</Button> */}
         <CardDiv>
             {cards}
         </CardDiv>
