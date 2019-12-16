@@ -8,6 +8,12 @@ import styled from 'styled-components'
 const CardDiv = styled.div`
     width: 28%;
     margin: 2%;
+    @media (max-width: 1100px){
+        width: 45%
+    };
+    @media (max-width: 650px){
+        width: 75%;
+    }
 
 `;
 

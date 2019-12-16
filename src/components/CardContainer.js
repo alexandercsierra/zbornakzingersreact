@@ -11,6 +11,9 @@ const CardDiv = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
+    @media(max-width: 650px){
+        width: 100%;
+    }
 `;
 
 // const Button = styled.button`
